@@ -1,0 +1,101 @@
+version: "3.0"
+
+intents:
+  - greet
+  - greet_2
+  - goodbye
+  - track_order
+  - give_ON
+  - affirm
+  - deny
+  - check_weather
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_remind_call: 
+      triggers: action_set_reminder
+  - EXTERNAL_reminder:
+      triggers: action_react_to_reminder
+
+
+entities:
+  - PERSON
+  - order_n
+  - location
+
+slots:
+  PERSON:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: PERSON
+  order_n:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: order_n
+  location:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
+
+responses:
+  # utter_greet:
+  # - text: "Hi, How are you? I am Jarvis, your ecom support. Welcome to our website, how may I help you today?"
+
+  utter_greet_2:
+  - text: "Hi, I am Jarvis, I am very happy to assist you today."
+
+  utter_offer_help:
+  - text: "How can I help you?"
+  - text: "Please let me know, how may I help you?"
+
+  utter_greet_3:
+  - text: "Hi, I am Jarvis, welcome to our website. Let me quickly pull up your order details so that I may help you"
+
+  # utter_greet_4:
+  # - text: "Hi, I am Jarvis. I am very sorry to hear that you didn't receive your order yet."
+
+  utter_empathy:
+  - text: "I am sorry to hear that."
+  - text: "My sincere apology for the consequences."
+
+  utter_ask_ON:
+  - text: "May I have your order number please?"
+
+  utter_ONR:
+  - text: "Thanks for the order number."
+
+  utter_pull_details:
+  - text: "Let me quickly pull up the details."
+
+  utter_give_orderdetails:
+  - text: "I just checked your order details and it seems to me that your order is on the way and it will be arriving within 2 days."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_check_weather
+  - action_check_name
+  - action_set_reminder
+  - action_react_to_reminder
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

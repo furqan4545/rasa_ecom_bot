@@ -1,0 +1,44 @@
+version: "3.0"
+
+stories:
+
+
+- story: happy track order demo
+  steps:
+  - intent: greet
+  - action: utter_greet_2
+  - action: utter_offer_help
+  - intent: track_order
+  - action: utter_empathy
+  - action: utter_ask_ON
+  - intent: give_ON
+  - action: utter_ONR
+  - action: utter_pull_details
+  - intent: ask_remind_call
+  - action: action_set_reminder
+  - intent: check_weather
+  - action: action_check_weather
+
+- story: track order path
+  steps:
+  - intent: track_order
+  - action: utter_greet_3
+  - action: utter_ask_ON
+  - intent: give_ON
+  - action: utter_ONR
+  - action: utter_pull_details
+  - intent: check_weather
+  - action: action_check_weather
+
+- story: track order path 2
+  steps:
+  - intent: greet_2
+  - action: action_check_name
+  - intent: track_order
+  - action: utter_ask_ON
+  - intent: give_ON
+  - action: utter_ONR
+  - action: utter_pull_details
+  - intent: check_weather
+  - action: action_check_weather
+
